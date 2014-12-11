@@ -1,0 +1,27 @@
+!!! 5
+%html
+  %head
+    %title 
+      Capybara Site
+    %link{ href: 'css/style.css', rel: 'stylesheet'}
+  %body
+    .container
+      %h1 Capybara Secret Site
+      %nav
+        %ul
+          %li 
+            %a{ href: '/' } 
+              Home
+          - if logged_in?
+            %li
+              %a{ href: '/logout' } 
+                Logout
+              
+      %section
+        %h3 Your info
+        %p This is the secret page.
+        %p Your username is #{@username}.
+        
+      %footer
+        %i
+          Copyright 2014

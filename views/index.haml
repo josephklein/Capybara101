@@ -3,15 +3,30 @@
   %head
     %title 
       Capybara Site
-    %link{ href: 'css/style.sass', rel: 'stylesheet'}
+    %link{ href: 'css/style.css', rel: 'stylesheet'}
   %body
     .container
+      %small= @message if @message
+
+      %h1 Capybara Secret Site
       %nav
         %ul
-          %li Home
-          %li Login
+          %li 
+            %a{ href: '/' } 
+              Home
+          %li
+            %a{ href: '/' } 
+              Login
       %section
-        %p This is where we'll put some stuff
+        %p This is login page for users.
+        %form{ action: '/login', method: 'POST' } 
+          %input{type: 'text', name: 'username', placeholder: 'Email here'}
+          %br
+          %input{type: 'text', name: 'password', placeholder: 'Password here'}
+          %br
+          %br
+          %input{type: 'submit', value: 'Submit'}
 
       %footer
-        Copyright 2014
+        %i
+          Copyright 2014
