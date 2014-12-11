@@ -1,34 +1,37 @@
 require 'sinatra'
 require 'sass'
 
-enable :sessions
+class Capybara101 < Sinatra::Base
+  enable :sessions
 
-helpers do
-  def logged_in?
-    session[:user]
+  helpers do
+    def logged_in?
+      session[:user]
+    end
   end
-end
 
-get "/" do
-  haml :index
-end
-
-post '/login' do
-  if params[:username] == params[:password]
-    session[:user] = params[:username]
-    redirect to '/dashboard'
-  else
-    redirect back
+  get "/" do
+    haml :index
   end
-end
 
-get '/logout' do
-  @message = 'You have been logged out'
-  session.clear
-  haml :index
-end
+  post '/login' do
+    if params[:username] == params[:password]
+      session[:user] = params[:username]
+      redirect to '/dashboard'
+    else
+      @message = 'Your username & password did not match'
+      haml :index
+    end
+  end
 
-get "/dashboard" do
-  @username = session[:user]
-  haml :dashboard
+  get '/logout' do
+    @message = 'You have been logged out'
+    session.clear
+    haml :index
+  end
+
+  get "/dashboard" do
+    @username = session[:user]
+    haml :dashboard
+  end
 end
