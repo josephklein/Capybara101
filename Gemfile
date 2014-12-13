@@ -8,3 +8,5 @@ gem "cucumber-sinatra"
 gem 'haml'
 gem 'pry'
 gem 'capybara'
+gem 'rspec'
+gem 'sass'
