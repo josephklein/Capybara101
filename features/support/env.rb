@@ -5,6 +5,7 @@ require File.dirname(__FILE__) + '/../../app'
 require 'capybara'
 require 'capybara/cucumber'
 require 'rspec'
+require 'pry'
 
 Capybara.app = Capybara101
 
