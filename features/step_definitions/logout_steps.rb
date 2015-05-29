@@ -1,8 +1,6 @@
 Given(/^I am logged in$/) do
   visit '/'
-  fill_in 'username', with: 'a_username'
-  fill_in 'password', with: 'a_username'
-  click_button 'Login'
+  step "I log in with proper credentials"
 end
 
 When(/^I visit the dashboard$/) do
