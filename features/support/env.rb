@@ -16,5 +16,6 @@ class Capybara101World
 end
 
 World do
+  MagicStrings = Struct.new(:username, :password).new('Vastanth', 'Vastanth')
   Capybara101World.new
 end
