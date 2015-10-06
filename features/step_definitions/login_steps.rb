@@ -1,3 +1,5 @@
+require 'pry'
+
 Given(/^the login page$/) do
   #put your code here
   visit '/'
@@ -6,8 +8,8 @@ end
 When(/^I log ?in with user '([^']+)' and password '([^']+)'$/) do |user,pass|
   @username = user
   within('form') do
-    fill_in 'username', :with => user
-    fill_in 'password', :with => pass
+    fill_in 'username', with: user
+    fill_in 'password', with: pass
   end
   click_button 'Login'
 end
