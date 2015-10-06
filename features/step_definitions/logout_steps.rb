@@ -1,10 +1,8 @@
 Given(/^I have logged in$/) do
   visit '/'
   @username = 'gwadej'
-  within('form') do
-    fill_in 'username', with: @username
-    fill_in 'password', with: @username
-  end
+  fill_in 'username', with: @username
+  fill_in 'password', with: @username
   click_button 'Login'
 end
 
